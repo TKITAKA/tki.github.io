@@ -164,3 +164,164 @@ a {
     transform: scale(0.8);
   }
 }
+
+/* Slider container styles */
+.ms-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ms-container.ms-container--vertical {
+  width: 90px;
+  height: 400px;
+  max-height: 100%;
+}
+
+.ms-container.ms-container--horizontal {
+  width: 400px;
+  height: 90px;
+  max-width: 100%;
+}
+
+.ms-container.ms-container--horizontal .ms-track {
+  left: calc(50% - 45px);
+}
+
+.ms-container.ms-container--reverse .ms-track {
+  flex-direction: row-reverse;
+  left: auto;
+  right: calc(50% - 45px);
+}
+
+/* Slider track */
+.ms-track {
+  display: flex;
+  position: absolute;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ms-track.flex-direction-column {
+  flex-direction: column;
+  top: calc(50% - 45px);
+}
+
+.ms-track.flex-direction-column-reverse {
+  flex-direction: column-reverse;
+  top: auto;
+  bottom: calc(50% - 45px);
+}
+
+/* Slides */
+.ms-slide {
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  user-select: none;
+}
+
+.ms-slide:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ms-slide:nth-child(2n + 1) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Images slider */
+.ms--images {
+  left: calc(50% - 330px);
+}
+
+.ms--images.ms-container--horizontal .ms-track {
+  left: -70px;
+}
+
+.ms--images .ms-slide:nth-child(1) .ms-slide__image {
+  background-image: url('https://cdn.jsdelivr.net/gh/lmgonzalves/momentum-slider@3b3037f7f1bab402fe3c75cd20ab18e04e1cbe0b/portfolio-carousel/img/harvey-gibson-498362-unsplash.jpg');
+}
+
+.ms--images .ms-slide:nth-child(2) .ms-slide__image {
+  background-image: url('https://cdn.jsdelivr.net/gh/lmgonzalves/momentum-slider@3b3037f7f1bab402fe3c75cd20ab18e04e1cbe0b/portfolio-carousel/img/andre-hunter-461305-unsplash.jpg');
+}
+
+.ms--images .ms-slide:nth-child(3) .ms-slide__image {
+  background-image: url('https://cdn.jsdelivr.net/gh/lmgonzalves/momentum-slider@3b3037f7f1bab402fe3c75cd20ab18e04e1cbe0b/portfolio-carousel/img/joanna-nix-389128-unsplash.jpg');
+}
+
+.ms--images .ms-slide:nth-child(4) .ms-slide__image {
+  background-image: url('https://cdn.jsdelivr.net/gh/lmgonzalves/momentum-slider@3b3037f7f1bab402fe3c75cd20ab18e04e1cbe0b/portfolio-carousel/img/jurica-koletic-321003-unsplash.jpg');
+}
+
+.ms--images .ms-slide__image-container {
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.ms--images .ms-slide__image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+/* Numbers slider */
+.ms--numbers {
+  position: absolute;
+  left: calc(50% - 370px);
+  top: calc(50% - 280px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ms--numbers .ms-slide {
+  font-size: 9em;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Titles slider */
+.ms--titles {
+  position: absolute;
+  left: calc(50% - 370px);
+  top: calc(50% - 85px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ms--titles .ms-track {
+  white-space: normal;
+}
+
+.ms--titles .ms-slide {
+  font-size: 3.3em;
+  font-weight: 600;
+}
+
+.ms--titles .ms-slide h3 {
+  margin: 0;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Links slider */
+.ms--links {
+  position: absolute;
+  left: calc(50% - 370px);
+  top: calc(50% + 105px);
+  z-index: 1;
+}
+
+.ms--links .ms-track {
+  white-space: normal;
+}
+
+.ms--links .ms-slide__link {
+  font-weight: 600;
+  padding: 5px 0 8px;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
