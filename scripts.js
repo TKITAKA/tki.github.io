@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     var slidersContainer = document.querySelector('.sliders-container');
 
     // Initializing the numbers slider
@@ -89,5 +89,4 @@
             msImages.select(index);
         }
     });
-
-})();
+});
