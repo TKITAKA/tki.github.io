@@ -1,45 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider Example</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>이름 - 이력서 및 포트폴리오</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <a class="header__logo">mir<span>r</span>or</a>
-            <nav class="header__menu">
-                <ul class="header__menu__list">
-                    <li class="header__menu__item"><a class="header__menu__link">works</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link">culture</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link">news</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link">careers</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link">contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main class="sliders-container">
-            <ul class="pagination">
-                <li class="pagination__item"><a class="pagination__button"></a></li>
-                <li class="pagination__item"><a class="pagination__button"></a></li>
-                <li class="pagination__item"><a class="pagination__button"></a></li>
-                <li class="pagination__item"><a class="pagination__button"></a></li>
-            </ul>
-        </main>
-        <footer class="footer">
-            <nav class="footer__menu">
-                <ul class="footer__menu__list">
-                    <li class="footer__menu__item"><a class="footer__menu__link">facebook</a></li>
-                    <li class="footer__menu__item"><a class="footer__menu__link">dribbble</a></li>
-                    <li class="footer__menu__item"><a class="footer__menu__link">instagram</a></li>
-                </ul>
-            </nav>
-        </footer>
+  <div class='pages'>
+    <input id='one' name='trigger' type='radio'>
+    <input id='two' name='trigger' type='radio'>
+    <input id='three' name='trigger' type='radio'>
+    <input id='four' name='trigger' type='radio'>
+    <div class='page' id='page1'>
+      <h1>이름</h1>
+      <p>연락처: 이메일, 전화번호, 주소</p>
+      <p>간단한 소개: 자신에 대한 간략한 소개.</p>
     </div>
-    <!-- Load the MomentumSlider library -->
-    <script src="libs/momentum-slider.min.js"></script>
-    <script src="scripts.js"></script>
+    <div class='page' id='page2'>
+      <h2>경력</h2>
+      <ul>
+        <li>직함 @ 회사 - 기간
+          <ul>
+            <li>업무 내용 1</li>
+            <li>업무 내용 2</li>
+            <li>업무 내용 3</li>
+          </ul>
+        </li>
+        <!-- 다른 경력도 반복하여 추가 -->
+      </ul>
+    </div>
+    <div class='page' id='page3'>
+      <h2>학력</h2>
+      <ul>
+        <li>학위 @ 기관 - 기간
+          <ul>
+            <li>전공, 부전공</li>
+            <li>관련 과목</li>
+          </ul>
+        </li>
+        <!-- 다른 학력도 반복하여 추가 -->
+      </ul>
+    </div>
+    <div class='page' id='page4'>
+      <h2>기술</h2>
+      <ul>
+        <li>기술 1</li>
+        <li>기술 2</li>
+        <li>기술 3</li>
+        <!-- 다른 기술도 반복하여 추가 -->
+      </ul>
+      <h2>프로젝트</h2>
+      <ul>
+        <li>프로젝트 이름 - 설명, 사용한 기술
+          <ul>
+            <li>세부사항 1</li>
+            <li>세부사항 2</li>
+            <li>세부사항 3</li>
+          </ul>
+        </li>
+        <!-- 다른 프로젝트도 반복하여 추가 -->
+      </ul>
+    </div>
+  </div>
+  <script src="./script.js"></script>
 </body>
 </html>
