@@ -1,19 +1,16 @@
 /* Common styles */
-$color-primary: rgba(255, 255, 255, 1);
-$color-secondary: rgba(255, 255, 255, 0.5);
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
 body {
-  color: $color-primary;
+  color: rgba(255, 255, 255, 1);
   background-color: #1B1C21;
   overflow: hidden;
 }
 
 a {
-  color: $color-primary;
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
   cursor: pointer;
 }
@@ -24,18 +21,6 @@ a {
   flex-direction: column;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: -150%;
-    top: 0;
-    width: 300%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    transform: rotate(45deg);
-    z-index: -1;
-  }
 }
 
 .header {
@@ -48,12 +33,12 @@ a {
   font-size: 1.3em;
   font-weight: 900;
   letter-spacing: -1px;
+}
 
-  span {
-    display: inline-block;
-    transform: translateY(4px) rotate(180deg);
-    pointer-events: none;
-  }
+.header__logo span {
+  display: inline-block;
+  transform: translateY(4px) rotate(180deg);
+  pointer-events: none;
 }
 
 .header__menu {
@@ -80,7 +65,7 @@ a {
 
 .footer__menu__link {
   margin-left: 50px;
-  color: $color-secondary;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .sliders-container {
@@ -89,13 +74,6 @@ a {
   align-items: center;
   justify-content: center;
   flex: 1;
-}
-
-/* Hide header menu and footer in small screens */
-@media screen and (max-width: 860px) {
-  .header__menu, .footer {
-    display: none;
-  }
 }
 
 /* Pagination styles */
@@ -146,6 +124,12 @@ a {
 }
 
 /* Responsive styles */
+@media screen and (max-width: 860px) {
+  .header__menu, .footer {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 860px) {
   .ms--numbers {
     left: calc(50% - 120px);
