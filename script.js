@@ -1,8 +1,3 @@
-/**
- * 환영합니다! 이 Pen은 ES6 기능과 더 깔끔한 코드로 업데이트되었습니다.
- * https://codepen.io/nevernotsean/pen/QodqGj
- */
-
 class ProjectComponent extends React.Component {
   constructor(props) {
     super(props);
