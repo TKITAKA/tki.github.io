@@ -1,181 +1,108 @@
-html{
-  font-size: 16px;
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+@font-face {
+  font-family: "longline";
+  src: url("https://assets.codepen.io/756881/Longline+Quart+FREE.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-html, body{
-  height: 100%;
+body {
+  padding: 0;
+  margin: 0;
+  height: 600vh;
+  width: 100vw;
+  font-family: "Nunito", sans-serif;
+  background-color: #e34f37;
+  color: white;
 }
 
-body{
+h1 {
+  font-family: "longline";
+}
+
+.slider-section {
+  height: 22vh;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+h1 {
+  font-size: 10vw;
+}
+
+.wheel {
+  position: absolute;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #111;
-  font-family: 'helvetica neue', helvetica, sans-serif;
-  overflow: hidden;
-}
-
-a{
-  color: #fff;
-  text-decoration: none;
-}
-
-.scroll{
-  position: absolute;
-  bottom: 2rem;
+  width: 300vw;
+  height: 300vw;
+  max-width: 2000px;
+  max-height: 2000px;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(#fff, 0.5);
-  font-family: 'font-2';
-  font-size: calc(0.5rem + 0.35vw);
-  z-index: 10;
 }
 
-.logo{
+.wheel__card {
   position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0;
-  margin: 0;
-  z-index: 10;
-  
-  img{
-    display: block;
-    height: 1rem;
-    width: auto;
-  }
+  top: 0;
+  left: 0;
+  width: 6%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
 }
 
-ul, li{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+img {
+  width: 100%;
+  pointer-events: none;
+  z-index: 999;
+  cursor: pointer;
 }
 
-.nav{
-  position: absolute;
-  top: 2rem;
-  z-index: 10;
-  
-  &--left{
-    left: 1rem;
-  }
-  
-  &--right{
-    right: 1rem;
-  }
-  
-  ul{
-    display: flex;
-    align-items: center;
-    height: 1rem;
-  }
-  
-  li{
-    display: block;
-    margin: 0 1rem;
-    padding: 0;
-  }
-  
-  a{
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-size: calc(0.5rem + 0.35vw);
-    font-family: 'helvetica neue', helvetica, sans-serif;
-    
-    span{
-      position: relative;
-      
-      &:before{
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -0.35rem;
-        width: 100%;
-        height: 1px;
-        background-color: rgba(#fff, 0.25);
-        transition: transform .75s ease;
-        transform-origin: right;
-        transform: scaleX(0);
-      }
-    }
-    
-    &:hover,
-    &.is-active {
-
-      span{
-        
-        &:before{
-          transform: scaleX(1);
-          transform-origin: left;
-        }
-      }
-    }
-  }
-}
-
-.vert-text{
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  width: 15rem;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
   display: flex;
   align-items: center;
-  z-index: 10;
-  
-  span{
-    display: block;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1.1;
-    transform: rotate(-90deg) translateY(15rem);
-    transform-origin: bottom left;
-    font-size: 1.35rem;
-  }
+  justify-content: center;
+  cursor: pointer;
 }
 
-.cart-total{
-  display: block;
-  height: 2rem;
-  width: 2rem;
-  background-color: rgba(#fff, 0.25);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 2rem;
-  margin-left: 1rem;
+.header img {
+  width: 40vw;
+  height: 40vw;
+  max-height: 350px;
+  max-width: 350px;
 }
 
-.slider{
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  
-  &__text{
-    position: absolute;
-    bottom: calc(2rem + 3vw);
-    left: calc(2rem + 3vw);
-    z-index: 10;
-    font-size: calc(1rem + 4vw);
-    text-transform: uppercase;
-    transform-origin: top;
-    line-height: 1.075;
-    color: #fff;
-    font-weight: 500;
-    
-    &-line{
-      overflow: hidden;
-    }
-  }
-  
-  &__inner{
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
+/* SCROLL DOWN */
+.scroll-down {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  overflow: visible;
+}
+
+.scroll-down .arrow {
+  position: relative;
+  top: 0px;
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  filter: invert(1);
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik00ODMuMiwxOTIuMmMtMjAuNS0yMC41LTUzLjUtMjAuOC03My43LTAuNkwyNTcsMzQ0LjFMMTA0LjUsMTkxLjZjLTIwLjItMjAuMi01My4yLTE5LjktNzMuNywwLjYKCWMtMjAuNSwyMC41LTIwLjgsNTMuNS0wLjYsNzMuN2wxOTAsMTkwYzEwLjEsMTAuMSwyMy40LDE1LjEsMzYuOCwxNWMxMy4zLDAuMSwyNi43LTQuOSwzNi44LTE1bDE5MC0xOTAKCUM1MDMuOSwyNDUuNyw1MDMuNywyMTIuNyw0ODMuMiwxOTIuMnoiLz4KPC9zdmc+);
+  background-size: contain;
+}
