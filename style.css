@@ -1,3 +1,4 @@
+/* 전체 페이지 배경 색상 및 크기 설정 */
 html, body {
   background-color: #222;
   width: 100%;
@@ -5,14 +6,17 @@ html, body {
   overflow: hidden;
 }
 
+/* 링크 및 제목 색상 설정 */
 a, h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+/* 링크 호버 시 색상 변경 */
 a:hover, a:hover > * {
   color: grey;
 }
 
+/* 카테고리 메뉴 컨테이너 설정 */
 .categories--menu-container {
   position: relative;
   height: 100%;
@@ -20,6 +24,7 @@ a:hover, a:hover > * {
   width: 100%;
 }
 
+/* 카테고리 목록 스타일 설정 */
 ul.categories {
   position: absolute;
   top: 50%;
@@ -27,11 +32,12 @@ ul.categories {
   transform: translate(-50%, -50%);
 }
 
+/* 개별 카테고리 스타일 설정 */
 .category {
   position: relative;
 }
 
-/*content*/
+/* 카테고리 내용 스타일 설정 */
 .category--content {
   position: absolute;
   top: 50px;
@@ -58,6 +64,7 @@ ul.categories {
   text-align: left;
 }
 
+/* 카테고리 이름 스타일 설정 */
 .category--name {
   position: absolute;
   white-space: nowrap;
@@ -76,10 +83,12 @@ ul.categories {
   text-transform: capitalize;
 }
 
+/* 포커스된 카테고리 이름 투명도 설정 */
 .focused .category--name {
   opacity: 0;
 }
 
+/* 프로젝트 리스트 클라이언트 스타일 설정 */
 .projectlist--client {
   font-size: 18px;
   margin-bottom: 0px;
@@ -88,12 +97,13 @@ ul.categories {
   font-weight: bold;
 }
 
+/* 프로젝트 리스트 설명 스타일 설정 */
 .projectlist--byline {
   font-size: 12px;
   font-family: "Nothing You Could Do", sans-serif;
 }
 
-/*last item content*/
+/* 마지막 항목 내용 스타일 설정 */
 .isLast .category--content {
   right: initial;
   left: 0;
@@ -115,7 +125,7 @@ ul.categories {
   text-align: right;
 }
 
-/*inactive states*/
+/* 비활성 상태 카테고리 스타일 설정 */
 li.category {
   transition: transform 500ms ease;
   position: relative;
@@ -134,12 +144,13 @@ li.category {
   transition: all 300ms ease;
 }
 
+/* 카테고리 이미지 컨테이너 스타일 설정 */
 .category--image-container {
   background: #222;
   transition: all 500ms ease;
 }
 
-/*active states*/
+/* 활성 상태 카테고리 스타일 설정 */
 li.category.isActive {
   z-index: 99;
 }
@@ -154,7 +165,7 @@ li.category.isActive {
   opacity: 1;
 }
 
-/*image states*/
+/* 이미지 상태 스타일 설정 */
 .category--image:hover, .category--image:focus, .focused .category--image:hover, .focused .category--image:focus {
   opacity: 1;
   cursor: pointer;
@@ -173,6 +184,7 @@ li.category.isActive {
   opacity: 0.75;
 }
 
+/* 카테고리 닫기 버튼 스타일 설정 */
 .category--closeButton {
   opacity: 0;
   text-align: center;
@@ -192,7 +204,7 @@ li.category.isActive {
   padding: 15px;
 }
 
-/*hover state*/
+/* 호버 상태 스타일 설정 */
 .category--image {
   /*transition: width 500ms ease;*/
 }
@@ -202,7 +214,7 @@ li.category.isActive {
   color: #eee;
 }
 
-/*Nav*/
+/* 내비게이션 스타일 설정 */
 .right-arrow {
   position: fixed;
   bottom: 50px;
