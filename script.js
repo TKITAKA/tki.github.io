@@ -19,26 +19,36 @@ class ProjectComponent extends React.Component {
   render() {
     const { modalVisible } = this.state;
     const { title, byline, description, client, category } = this.props;
-    return (
-      <div>
-        <li onClick={this.showModal}>
-          <a>
-            <h3 className="projectlist--client">{client}</h3>
-            <h4 className="projectlist--byline">{byline}</h4>
-          </a>
-        </li>
-        {modalVisible && (
-          <div className="modal" style={{ display: 'block' }}>
-            <div className="modal-content">
-              <span className="close" onClick={this.hideModal}>&times;</span>
-              <h2>{title}</h2>
-              <p>{description}</p>
-              <p>Byline: {byline}</p>
-              <p>Category: {category}</p>
-            </div>
-          </div>
-        )}
-      </div>
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'li',
+        { onClick: this.showModal },
+        React.createElement(
+          'a',
+          null,
+          React.createElement('h3', { className: 'projectlist--client' }, client),
+          React.createElement('h4', { className: 'projectlist--byline' }, byline)
+        )
+      ),
+      modalVisible && React.createElement(
+        'div',
+        { className: 'modal', style: { display: 'block' } },
+        React.createElement(
+          'div',
+          { className: 'modal-content' },
+          React.createElement(
+            'span',
+            { className: 'close', onClick: this.hideModal },
+            '×'
+          ),
+          React.createElement('h2', null, title),
+          React.createElement('p', null, description),
+          React.createElement('p', null, 'Byline: ' + byline),
+          React.createElement('p', null, 'Category: ' + category)
+        )
+      )
     );
   }
 }
@@ -47,23 +57,25 @@ class ProjectList extends React.Component {
   render() {
     const projects = this.props.projects;
 
-    return (
-      <div className="project-list">
-        <ul className="menu vertical">
-          {projects.map(project => (
-            <ProjectComponent
-              key={project.id}
-              title={project.title}
-              byline={project.byline}
-              description={project.description}
-              client={project.client}
-              thumbnail={project.thumbnail}
-              category={project.category}
-              id={project.id}
-            />
-          ))}
-        </ul>
-      </div>
+    return React.createElement(
+      'div',
+      { className: 'project-list' },
+      React.createElement(
+        'ul',
+        { className: 'menu vertical' },
+        projects.map(project =>
+          React.createElement(ProjectComponent, {
+            key: project.id,
+            title: project.title,
+            byline: project.byline,
+            description: project.description,
+            client: project.client,
+            thumbnail: project.thumbnail,
+            category: project.category,
+            id: project.id
+          })
+        )
+      )
     );
   }
 }
@@ -108,22 +120,30 @@ class ProjectCategory extends React.Component {
 
     const classes = classNames({ category: true, isActive: active, isLast, shiftLeft });
 
-    return (
-      <li className={classes} style={styles.item}>
-        <div className="category--content">
-          <h2>{cat.title}</h2>
-          <ProjectList projects={cat.projects} />
-        </div>
-        <div className="category--image-container" onClick={this.setActive} style={styles.container}>
-          <div className="category--image" style={styles.background}></div>
-        </div>
-        <div className="category--name">
-          <h6>{cat.name}</h6>
-        </div>
-        <div className="category--closeButton">
-          <a href="#">Back</a>
-        </div>
-      </li>
+    return React.createElement(
+      'li',
+      { className: classes, style: styles.item },
+      React.createElement(
+        'div',
+        { className: 'category--content' },
+        React.createElement('h2', null, cat.title),
+        React.createElement(ProjectList, { projects: cat.projects })
+      ),
+      React.createElement(
+        'div',
+        { className: 'category--image-container', onClick: this.setActive, style: styles.container },
+        React.createElement('div', { className: 'category--image', style: styles.background })
+      ),
+      React.createElement(
+        'div',
+        { className: 'category--name' },
+        React.createElement('h6', null, cat.name)
+      ),
+      React.createElement(
+        'div',
+        { className: 'category--closeButton' },
+        React.createElement('a', { href: '#' }, 'Back')
+      )
     );
   }
 }
@@ -256,43 +276,43 @@ class Collection extends React.Component {
     let isLast = i === this.state.categories.length - 1 || i === this.state.categories.length - 2;
     let shiftLeft = i < this.state.activeIndex;
 
-    return (
-      <ProjectCategory
-        cat={cat}
-        key={'cat-' + i}
-        handleClick={this._handleClick}
-        active={i === this.state.activeIndex}
-        focusOff={this._focusOff}
-        focused={this.state.open}
-        shiftLeft={shiftLeft}
-        index={i}
-        isLast={isLast}
-      />
-    );
+    return React.createElement(ProjectCategory, {
+      cat: cat,
+      key: 'cat-' + i,
+      handleClick: this._handleClick,
+      active: i === this.state.activeIndex,
+      focusOff: this._focusOff,
+      focused: this.state.open,
+      shiftLeft: shiftLeft,
+      index: i,
+      isLast: isLast
+    });
   }
 
   render() {
     let catNodes = this.state.categories.map(this.categoryNode);
     let classes = classNames({ focused: this.state.open });
 
-    return (
-      <div className={'categories--menu-container ' + classes} onClick={this._focusOff} style={{ height: window.innerHeight }}>
-        <ul className="categories menu">
-          {catNodes}
-        </ul>
-      </div>
+    return React.createElement(
+      'div',
+      { className: 'categories--menu-container ' + classes, onClick: this._focusOff, style: { height: window.innerHeight } },
+      React.createElement(
+        'ul',
+        { className: 'categories menu' },
+        catNodes
+      )
     );
   }
 }
 
 class App extends React.Component {
   render() {
-    return (
-      <div className="App">
-        <Collection />
-      </div>
+    return React.createElement(
+      'div',
+      { className: 'App' },
+      React.createElement(Collection, null)
     );
   }
 }
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(React.createElement(App, null), document.querySelector("#root"));
