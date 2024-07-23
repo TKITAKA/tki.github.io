@@ -23,7 +23,7 @@ class ProjectComponent extends React.Component {
 
   render() {
     const { modalVisible } = this.state;
-    const { byline, description, client, category } = this.props;
+    const { title, byline, description, client, category } = this.props;
     return (
       <div>
         <li onClick={this.showModal}>
@@ -36,7 +36,7 @@ class ProjectComponent extends React.Component {
           <div className="modal" style={{ display: 'block' }}>
             <div className="modal-content">
               <span className="close" onClick={this.hideModal}>&times;</span>
-              <h2>{client}</h2>
+              <h2>{title}</h2>
               <p>{description}</p>
               <p>Byline: {byline}</p>
               <p>Category: {category}</p>
@@ -50,48 +50,7 @@ class ProjectComponent extends React.Component {
 
 class ProjectList extends React.Component {
   render() {
-    const projects = [
-      {
-        byline: "ut ullamco sunt",
-        description: "Enim est qui Lorem officia adipisicing irure minim.",
-        client: "pariatur",
-        thumbnail: "https://unsplash.it/1000/1000",
-        category: "aute",
-        id: "58653533ca121cbaf664b199"
-      },
-      {
-        byline: "consectetur aute aliquip",
-        description: "Reprehenderit in mollit fugiat cupidatat consectetur minim Lorem eiusmod commodo laboris dolor minim tempor eiusmod.",
-        client: "et",
-        thumbnail: "https://unsplash.it/1000/1001",
-        category: "nisi",
-        id: "58653533702dae7921a80c46"
-      },
-      {
-        byline: "eiusmod ullamco commodo",
-        description: "Ullamco minim occaecat officia anim laborum laboris velit cupidatat esse aliqua irure exercitation.",
-        client: "magna",
-        thumbnail: "https://unsplash.it/1000/1002",
-        category: "consectetur",
-        id: "58653533e961f59631955144"
-      },
-      {
-        byline: "culpa tempor commodo",
-        description: "Cupidatat incididunt laborum cillum ea dolore quis.",
-        client: "sint",
-        thumbnail: "https://unsplash.it/1000/1003",
-        category: "do",
-        id: "58653533c66184064ccedc40"
-      },
-      {
-        byline: "ex deserunt est",
-        description: "Eu ullamco anim adipisicing duis adipisicing sint sit incididunt pariatur sit.",
-        client: "occaecat",
-        thumbnail: "https://unsplash.it/1000/1004",
-        category: "sit",
-        id: "586535332e3781792a099619"
-      }
-    ];
+    const projects = this.props.projects;
 
     return (
       <div className="project-list">
@@ -99,6 +58,7 @@ class ProjectList extends React.Component {
           {projects.map(project => (
             <ProjectComponent
               key={project.id}
+              title={project.title}
               byline={project.byline}
               description={project.description}
               client={project.client}
@@ -118,14 +78,10 @@ class ProjectCategory extends React.Component {
     super(props);
 
     this.setActive = this.setActive.bind(this);
-
-    this.state = {
-      projects: []
-    };
   }
 
   setActive() {
-    this.props.handleClick(this.props.Index);
+    this.props.handleClick(this.props.index);
   }
 
   getWidth(isActive) {
@@ -134,9 +90,9 @@ class ProjectCategory extends React.Component {
   }
 
   render() {
-    let { active, focused, shiftLeft, isLast } = this.props;
+    const { active, focused, shiftLeft, isLast, cat } = this.props;
 
-    let styles = {
+    const styles = {
       container: {
         transform: active
           ? 'scale(1.1) translate3d(0, 0, 0)'
@@ -148,26 +104,26 @@ class ProjectCategory extends React.Component {
           : 'translate3d(0, 0, 0)'
       },
       background: {
-        background: 'url(' + this.props.cat.thumbnail + ') no-repeat center center',
+        background: 'url(' + cat.thumbnail + ') no-repeat center center',
         backgroundSize: 'cover',
         height: '500px',
         width: this.getWidth(active)
       }
     };
 
-    let classes = classNames({ category: true, isActive: active, isLast, shiftLeft });
+    const classes = classNames({ category: true, isActive: active, isLast, shiftLeft });
 
     return (
       <li className={classes} style={styles.item}>
         <div className="category--content">
-          <h2>{this.props.cat.name}</h2>
-          <ProjectList />
+          <h2>{cat.title}</h2>
+          <ProjectList projects={cat.projects} />
         </div>
         <div className="category--image-container" onClick={this.setActive} style={styles.container}>
           <div className="category--image" style={styles.background}></div>
         </div>
         <div className="category--name">
-          <h6>{this.props.cat.name}</h6>
+          <h6>{cat.name}</h6>
         </div>
         <div className="category--closeButton">
           <a href="#">Back</a>
@@ -196,49 +152,89 @@ class Collection extends React.Component {
     this.setState({
       categories: [
         {
-          "thumbnail": "https://unsplash.it/1200/1200",
-          "link": "http://seanma.de",
-          "taxonomy": "category",
-          "count": 6,
-          "name": "consequat",
-          "slug": "commodo",
-          "id": "586537da62981d5fb8c21617"
+          title: "자기소개",
+          name: "소개",
+          thumbnail: "https://unsplash.it/1200/1200",
+          projects: [
+            {
+              title: "자기소개",
+              byline: "안녕하세요, 저는...",
+              description: "저는 웹 개발자입니다...",
+              client: "소개",
+              thumbnail: "https://unsplash.it/1000/1000",
+              category: "소개",
+              id: "1"
+            }
+          ],
+          id: "1"
         },
         {
-          "thumbnail": "https://unsplash.it/1200/1201",
-          "link": "http://seanma.de",
-          "taxonomy": "category",
-          "count": 8,
-          "name": "non",
-          "slug": "laborum",
-          "id": "586537da60c040bc1e3060a1"
+          title: "기술",
+          name: "기술",
+          thumbnail: "https://unsplash.it/1200/1201",
+          projects: [
+            {
+              title: "기술",
+              byline: "프로그래밍 언어",
+              description: "저는 여러 프로그래밍 언어를 사용합니다...",
+              client: "기술",
+              thumbnail: "https://unsplash.it/1000/1001",
+              category: "기술",
+              id: "2"
+            }
+          ],
+          id: "2"
         },
         {
-          "thumbnail": "https://unsplash.it/1200/1202",
-          "link": "http://seanma.de",
-          "taxonomy": "category",
-          "count": 3,
-          "name": "non",
-          "slug": "commodo",
-          "id": "586537daffc67c66ec4dc356"
+          title: "경력",
+          name: "경력",
+          thumbnail: "https://unsplash.it/1200/1202",
+          projects: [
+            {
+              title: "경력",
+              byline: "이전 직장",
+              description: "저는 다양한 회사에서 근무했습니다...",
+              client: "경력",
+              thumbnail: "https://unsplash.it/1000/1002",
+              category: "경력",
+              id: "3"
+            }
+          ],
+          id: "3"
         },
         {
-          "thumbnail": "https://unsplash.it/1200/1203",
-          "link": "http://seanma.de",
-          "taxonomy": "category",
-          "count": 6,
-          "name": "velit",
-          "slug": "voluptate",
-          "id": "586537dae1be34396786ce5f"
+          title: "프로젝트",
+          name: "프로젝트",
+          thumbnail: "https://unsplash.it/1200/1203",
+          projects: [
+            {
+              title: "프로젝트",
+              byline: "주요 프로젝트",
+              description: "제가 진행한 주요 프로젝트는 다음과 같습니다...",
+              client: "프로젝트",
+              thumbnail: "https://unsplash.it/1000/1003",
+              category: "프로젝트",
+              id: "4"
+            }
+          ],
+          id: "4"
         },
         {
-          "thumbnail": "https://unsplash.it/1200/1204",
-          "link": "http://seanma.de",
-          "taxonomy": "category",
-          "count": 2,
-          "name": "non",
-          "slug": "voluptate",
-          "id": "586537dab274a22da2f3edae"
+          title: "프로필",
+          name: "프로필",
+          thumbnail: "https://unsplash.it/1200/1204",
+          projects: [
+            {
+              title: "프로필",
+              byline: "개인 정보",
+              description: "제 프로필 정보입니다...",
+              client: "프로필",
+              thumbnail: "https://unsplash.it/1000/1004",
+              category: "프로필",
+              id: "5"
+            }
+          ],
+          id: "5"
         }
       ]
     });
@@ -274,7 +270,7 @@ class Collection extends React.Component {
         focusOff={this._focusOff}
         focused={this.state.open}
         shiftLeft={shiftLeft}
-        Index={i}
+        index={i}
         isLast={isLast}
       />
     );
