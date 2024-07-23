@@ -6,7 +6,7 @@ class ProjectComponent extends React.Component {
       null,
       React.createElement(
         'li',
-        { onClick: () => window.location.href = `./project_${id}.html` },
+        { onClick: () => window.location.href = `./a/project_${id}.html` },
         React.createElement(
           'a',
           null,
