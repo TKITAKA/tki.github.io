@@ -4,21 +4,51 @@
  */
 
 class ProjectList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalVisible: false,
+      selectedProject: null
+    };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  showModal(project) {
+    this.setState({ modalVisible: true, selectedProject: project });
+  }
+
+  hideModal() {
+    this.setState({ modalVisible: false, selectedProject: null });
+  }
+
   createProjectListItem(project) {
     let byline = project.acf.project_byline;
     let client = project.acf.project_client;
     return /*#__PURE__*/(
-      React.createElement("li", { key: 'project-' + project.id }, /*#__PURE__*/
+      React.createElement("li", { key: 'project-' + project.id, onClick: () => this.showModal(project) }, /*#__PURE__*/
       React.createElement("a", { to: '/projects/' + project.slug }, /*#__PURE__*/
       React.createElement("h3", { className: "projectlist--client" }, client), /*#__PURE__*/
       React.createElement("h4", { className: "projectlist--byline" }, byline))));
   }
 
   render() {
+    const { modalVisible, selectedProject } = this.state;
     return /*#__PURE__*/(
       React.createElement("div", { className: "project-list" }, /*#__PURE__*/
       React.createElement("ul", { className: "menu vertical" },
-      this.props.projects.map(this.createProjectListItem))));
+      this.props.projects.map(this.createProjectListItem.bind(this))),
+      modalVisible && /*#__PURE__*/(
+        React.createElement("div", { className: "modal", style: { display: 'block' } }, /*#__PURE__*/
+        React.createElement("div", { className: "modal-content" }, /*#__PURE__*/
+        React.createElement("span", { className: "close", onClick: this.hideModal }, "\xD7"), /*#__PURE__*/
+        React.createElement("h2", null, selectedProject.acf.project_client), /*#__PURE__*/
+        React.createElement("p", null, selectedProject.acf.project_description), /*#__PURE__*/
+        React.createElement("p", null, "Byline: ", selectedProject.acf.project_byline), /*#__PURE__*/
+        React.createElement("p", null, "Category: ", selectedProject.acf.project_category)
+        ))
+      )
+    ));
   }
 }
 
