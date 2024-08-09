@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    body {
+      background-color: #000;
+      width: 100vw;
+      display: flex;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btnBar {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .backBtn {
+      width: 30px;
+      height: 30px;
+      margin-right: 100px;
+      font-size: 16pt;
+      font-weight: 700;
+    }
+
+    .imgBox {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      margin: 30px;
+      cursor: pointer;
+    }
+
+    /* 마지막 줄의 이미지들을 좌측 정렬 */
+    .gallery>div:last-child {
+      display: flex;
+      width: 100%;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .overlay .navButton {
+      position: absolute;
+      top: 50%;
+      font-size: 2rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .overlay .prevBtn {
+      left: 10px; /* 버튼이 이미지 왼쪽에 붙도록 조정 */
+    }
+
+    .overlay .nextBtn {
+      right: 10px; /* 버튼이 이미지 오른쪽에 붙도록 조정 */
+    }
+
+    .hidden {
+      width: 300px;
+      height: 300px;
+      margin: 30px;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gallery">
+    <div class="btnBar">
+      <button class="backBtn" onclick="back()">X</button>
+    </div>
+    <div class="imgBox">
+      <img src="img/t1.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t2.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t3.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t4.jpeg" alt="slideshow" onclick="openImage(this)">
+      <!-- <img src="img/tt4.jpg alt="slideshow" onclick="openImage(this)"> -->
+      <img src="img/t5.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t6.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t7.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t8.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t9.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t10.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t11.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t12.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t13.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t14.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t15.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t16.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t17.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t18.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t19.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t20.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t21.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t22.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t23.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t24.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t25.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t26.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t27.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t28.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t29.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t30.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t31.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t32.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t33.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t34.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t35.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t36.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t37.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t38.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t39.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t40.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t41.jpeg" alt="slideshow" onclick="openImage(this)">
+      <img src="img/t42.jpeg" alt="slideshow" onclick="openImage(this)">
+      <!-- <img src="img/tt42.jpg alt="slideshow" onclick="openImage(this)"> -->
+      <img src="img/t43.jpeg" alt="slideshow" onclick="openImage(this)">
+      <div class="hidden"></div>
+      <div class="hidden"></div>
+    </div>
+  </div>
+
+  <div id="imageOverlay" class="overlay" onclick="closeImage()">
+    <div class="overlay-content">
+      <button class="navButton prevBtn" onclick="prevImage(event)">&#8249;</button>
+      <img id="overlayImage" src="" alt="Expanded Image">
+      <button class="navButton nextBtn" onclick="nextImage(event)">&#8250;</button>
+    </div>
+  </div>
+
+  <script>
+    const images = Array.from(document.querySelectorAll('.imgBox img'));
+    let currentIndex = 0;
+
+    function openImage(imgElement) {
+      const overlay = document.getElementById('imageOverlay');
+      const overlayImage = document.getElementById('overlayImage');
+      currentIndex = images.indexOf(imgElement);
+      overlayImage.src = imgElement.src;
+      overlay.style.display = 'flex';
+    }
+
+    function closeImage() {
+      document.getElementById('imageOverlay').style.display = 'none';
+    }
+
+    function back() {
+      window.location.href = '/?opencom=true';
+    }
+
+    function prevImage(event) {
+      event.stopPropagation();
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+      updateImage();
+    }
+
+    function nextImage(event) {
+      event.stopPropagation();
+      currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+      updateImage();
+    }
+
+    function updateImage() {
+      const overlayImage = document.getElementById('overlayImage');
+      overlayImage.src = images[currentIndex].src;
+    }
+  </script>
+</body>
+
+</html>
