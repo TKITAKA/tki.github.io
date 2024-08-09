@@ -373,10 +373,11 @@ function powerOff() {
 }
 
 $(document).ready(function(){
-    $('.nav-tabs a').click(function(){
-        $(this).tab('show');
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        console.log('New tab activated!');
     });
 });
+
 
 function openvid() {
     var videoOverlay = document.getElementById('video-overlay');
@@ -486,3 +487,54 @@ function closeWindow(id) {
         element.style.display = 'none';
     }
 }
+
+
+document.querySelectorAll('.image-overlay').forEach(overlay => {
+    const imgElement = overlay.querySelector('img'); // 이미지 요소를 찾습니다.
+    let isDragging = false;
+    let startX, startY, initialX, initialY;
+  
+  
+    // 드래그 시작
+    imgElement.addEventListener('mousedown', function(event) {
+        isDragging = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        initialX = parseInt(window.getComputedStyle(imgElement).left, 10) || 0;
+        initialY = parseInt(window.getComputedStyle(imgElement).top, 10) || 0;
+        imgElement.style.cursor = 'grabbing';
+        event.preventDefault(); // 기본 동작 방지 (예: 텍스트 선택)
+    });
+  
+    // 드래그 중
+    document.addEventListener('mousemove', function(event) {
+        if (isDragging) {
+            let currentX = event.clientX;
+            let currentY = event.clientY;
+            let deltaX = currentX - startX;
+            let deltaY = currentY - startY;
+  
+            imgElement.style.left = (initialX + deltaX) + 'px';
+            imgElement.style.top = (initialY + deltaY) + 'px';
+        }
+    });
+  
+    // 드래그 종료
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            imgElement.style.cursor = 'grab';
+        }
+    });
+  
+    // 초기 상태에서 커서 스타일 설정
+    imgElement.style.cursor = 'grab';
+  });
+
+  function openhyenjang() {
+    window.location.href = 'hyenjang.html';
+  }
+
+  function opentikitaka() {
+    window.location.href = 'tikitaka.html';
+  }
