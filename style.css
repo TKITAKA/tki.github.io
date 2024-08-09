@@ -262,13 +262,11 @@ mark {
 }
 
 .overlay-computer .first-row-win .left i:after {
-    top: 0;
     content: " | ";
     margin: 0 5px
 }
 
 .overlay-computer .first-row-win .left i:last-of-type::after {
-    top: 0;
     content: "  ";
     margin: 0 5px
 }
@@ -347,8 +345,8 @@ mark {
 
 .path-icon {
     position: absolute;
-    top: -2px;
-    left: 17px;
+    bottom: 6px;
+    left: 22px;
 }
 
 .path-input {
@@ -616,4 +614,72 @@ div .resizer {
     color: #fff;
     background-color: #0079d6;
     border-color: #204d74;
+}
+
+/* 툴바 css 추가 */
+
+.home-tap-container {
+    display: flex;
+    align-items: center;
+}
+
+.home-tap {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.home-tap img {
+    display: block;
+    margin: 0 auto;
+}
+
+.home-tap p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+.separator {
+    height: 60px;
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+/* 왼쪽 상단 아이콘*/
+.separator2 {
+    height: 10px; /* 아이콘과 같은 높이 */
+    width: 1px;   /* 구분선의 너비 */
+    background-color: #ccc; /* 구분선의 색상 */
+    margin: 0 8px; /* 구분선과 인접 아이콘 사이의 간격 조절 */
+}
+
+
+.first-row-win .left {
+    display: flex;
+    align-items: center;
+}
+
+.first-row-win .left span {
+    font-size: 14px; /* 텍스트의 폰트 크기 조절 */
+    margin-left: 8px; /* 텍스트와 마지막 아이콘 사이의 간격 조절 */
+}
+
+.image-overlay img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 이미지를 정확히 중앙으로 이동시킵니다. */
+}
+
+i.fa.fa-times:hover {
+    color: white;
+    background-color: #d40000;
+}
+
+.icon-bottom:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+.right i:hover {
+    background-color: #ddd;
 }
