@@ -1,23 +1,1861 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - React를 사용한 가로 확장 아코디언</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css'>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 10 Design</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <!-- partial:index.partial.html -->
-  <div id="pentitle" style="display: none;" data-title="React를 사용한 가로 확장 아코디언"></div>
-  <div id="root"></div>
-  <div class="arrow"></div> <!-- .arrow 요소 추가 -->
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js'></script>
-  <script src='https://codepen.io/nevernotsean/pen/68c150995678a82a39e33f71ef5ce683'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/index.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js'></script>
-  <script src='./script.js'></script>
+    <div id="window" class="window">
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="opencom()">
+            <img src="https://mohamedelghandour.github.io/windows-10/img/thumb_14339670430This_PC.png" class="img-responsive">
+            <p>내 PC</p>
+        </div>
+
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="openTrash()">
+            <img src="./img/trash.png" class="img-responsive">
+            <p>휴지통</p>
+        </div>
+
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="openppt()">
+            <img src="./img/file.png" class="img-responsive">
+            <p>포토폴리오</p>
+        </div>
+
+
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="openImageOverlay('1')">
+            <img src="./img/korean.png" class="img-responsive">
+            <p>이력서</p>
+        </div>
+
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="openImageOverlay('2')">
+            <img src="./img/korean.png" class="img-responsive">
+            <p>자기소개서</p>
+        </div>
+
+
+        <div class="icon-computer text-center" id="icon-computer" ondblclick="opencom()">
+            <img src="https://mohamedelghandour.github.io/windows-10/img/chrome1600.png" class="img-responsive">
+            <p>크롬</p>
+        </div>
+        
+        <div class="overlay-computer" id="overlay-computer" data-id="1">
+            <div class="fluid-container">
+                <div class="first-row-win" id="first-row-win">
+                    <div class="left">
+                        <i class="fa fa-hdd-o"></i>
+                        <i class="fa fa-file-o"></i>
+                        <i class="fa fa-folder"></i>
+                        <span>내 PC</span>
+                    </div>
+                    <div class="right">
+                        <i class="fa fa-window-minimize" onclick="closeopencom('1')"></i>
+                        <i class="fa fa-window-restore" onclick="returnCom('1')" id="returncam1" style="display:none;"></i>
+                        <i class="fa fa-window-maximize" onclick="uperCom('1')" id="upercam1"></i>
+                        <i class="fa fa-times" onclick="closecom('1')"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="second-row-win">
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-envelope-open fa-2x"></i>
+                                    <p>Mail</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-file-code-o  fa-2x"></i>
+                                    <p>Code</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-sticky-note-o fa-2x"></i>
+                                    <p>Note</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-user-circle fa-2x"></i>
+                                    <p>User</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-battery-4  fa-2x"></i>
+                                    <p>battery</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-book fa-2x"></i>
+                                    <p>Book</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-car fa-2x"></i>
+                                    <p>Car</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-camera-retro  fa-2x"></i>
+                                    <p>cam</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-building fa-2x"></i>
+                                    <p>build</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-cubes fa-2x"></i>
+                                    <p>cubes</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-coffee fa-2x"></i>
+                                    <p>coffee</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-film fa-2x"></i>
+                                    <p>film</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="third-row-win">
+                    <div class="col-xs-2">
+                        <i class="fa fa-long-arrow-left"></i>
+                        <i class="fa fa-long-arrow-right"></i>
+                        <i class="fa fa-chevron-down"></i>
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="path-input">
+                            <span class="path-icon-input">This pc</span>
+                            <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                            <span class="path-icon-input">programming</span>
+                            <span class="path-icon-input">Front End</span>
+                        </div>
+                        <i class="fa fa-hdd-o path-icon"></i>
+                        <i class="fa fa-repeat path-icon-1"></i>
+                        <i class="path-icon-2">|</i>
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="search-input" type="text" placeholder="Search">
+                        <i class="fa fa-search path-icon-1"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fourd-row-win">
+                    <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span class="fa fa-star">Quick access</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <span class="fa fa-folder-open">Creative Cloud</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <span class="fa fa-desktop">This PC</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 ">
+                        <div class="row main-folders">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="openvid()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/myposter.PNG" class="img-responsive center-block" alt=""></p>
+                                <span>Video</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="opennote()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_sticky-note_299111.png" class="img-responsive  center-block" alt=""></p>
+                                <span>Note</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" onclick="toggleOverlay('1')">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg" class="img-responsive center-block" style="height: 64px;" alt=""></p>
+                                <span>Folder</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" onclick="toggleOverlay('2')">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg" class="img-responsive center-block" style="height: 64px;" alt=""></p>
+                                <span>Folder</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fived-row-win"></div>
+            </div>
+            <div class="resizer"></div>
+        </div>
+
+<!--dasdasdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssss-->
+
+<div class="image-overlay" id="image-overlay-1" data-id="1">
+    <div class="fluid-container">
+        <div class="first-row-img">
+            <span class="center-text head-over">이력서</span>
+            <div class="right">
+                <i class="fa fa-times" onclick="closeImageOverlay('1')"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="second-row-img">
+            <img src="./img/KakaoTalk_20240809_134754702.png" class="center-block img-responsive" style="height:80vh" alt="">
+        </div>
+    </div>
+</div>
+
+<!----------석주------------->
+
+<!--dasdasdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssss-->
+
+
+<div class="image-overlay" id="image-overlay-2" data-id="2">
+    <div class="fluid-container">
+        <div class="first-row-img">
+            <span class="center-text head-over">자기소개서</span>
+            <div class="right">
+                <i class="fa fa-times" onclick="closeImageOverlay('2')"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="second-row-img">
+            <img src="./img/KakaoTalk_20240809_134802344.png" class="center-block img-responsive" style="height:80vh" alt="">
+        </div>
+    </div>
+</div>
+
+<!----------석주------------->
+<!--dasdasdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssss-->
+
+
+<div class="image-overlay" id="image-overlay-3" data-id="3">
+    <div class="fluid-container">
+        <div class="first-row-img">
+            <span class="center-text head-over">vscode</span>
+            <div class="right">
+                <i class="fa fa-times" onclick="closeImageOverlay('3')"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="second-row-img">
+            <img src="./img/KakaoTalk_Snapshot_20240809_151254.png" class="center-block img-responsive" style="height:80vh" alt="">
+        </div>
+    </div>
+</div>
+
+<!----------석주------------->
+<!--dasdasdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddssssssssssssss-->
+
+<div class="image-overlay" id="image-overlay-4" data-id="4">
+    <div class="fluid-container">
+        <div class="first-row-img">
+            <span class="center-text head-over">휴지</span>
+            <div class="right">
+                <i class="fa fa-times" onclick="closeImageOverlay('4')"></i>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="second-row-img">
+            <video class="center-block img-responsive" style="height:80vh" controls>
+                <source src="./img/2YIPNQ7Qdu05JV2Az3UaLLWSMeMt8W1EVgSClyRcoXFuf1c32OAARxzh2AfBEBjTwWDqR-AcTwRuhWbAx5vd9w.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<!----------석주------------->
+        
+        <div class="overlay-computer" id="overlay-computer" data-id="2">
+            <div class="fluid-container">
+                <div class="first-row-win" id="first-row-win">
+                    <div class="left">
+                        <i class="fa fa-hdd-o"></i>
+                        <i class="fa fa-file-o"></i>
+                        <i class="fa fa-folder"></i>
+                        <span>Front End</span>
+                    </div>
+                    <div class="right">
+                        <i class="fa fa-window-minimize" onclick="closeopencom('2')"></i>
+                        <i class="fa fa-window-restore" onclick="returnCom('2')" id="returncam2" style="display:none;"></i>
+                        <i class="fa fa-window-maximize" onclick="uperCom('2')" id="upercam2"></i>
+                        <i class="fa fa-times" onclick="closecom('2')"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="second-row-win">
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-envelope-open fa-2x"></i>
+                                    <p>Mail</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-file-code-o  fa-2x"></i>
+                                    <p>Code</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-sticky-note-o fa-2x"></i>
+                                    <p>Note</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-user-circle fa-2x"></i>
+                                    <p>User</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-battery-4  fa-2x"></i>
+                                    <p>battery</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-book fa-2x"></i>
+                                    <p>Book</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-car fa-2x"></i>
+                                    <p>Car</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-camera-retro  fa-2x"></i>
+                                    <p>cam</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-building fa-2x"></i>
+                                    <p>build</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-cubes fa-2x"></i>
+                                    <p>cubes</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-coffee fa-2x"></i>
+                                    <p>coffee</p>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-film fa-2x"></i>
+                                    <p>film</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="third-row-win">
+                    <div class="col-xs-2">
+                        <i class="fa fa-long-arrow-left"></i>
+                        <i class="fa fa-long-arrow-right"></i>
+                        <i class="fa fa-chevron-down"></i>
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="path-input">
+                            <span class="path-icon-input">This pc</span>
+                            <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                            <span class="path-icon-input">programming</span>
+                            <span class="path-icon-input">Front End</span>
+                        </div>
+                        <i class="fa fa-hdd-o path-icon"></i>
+                        <i class="fa fa-repeat path-icon-1"></i>
+                        <i class="path-icon-2">|</i>
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="search-input" type="text" placeholder="Search">
+                        <i class="fa fa-search path-icon-1"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="fourd-row-win">
+                    <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span class="fa fa-star">Quick access</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <span class="fa fa-folder-open">Creative Cloud</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <span class="fa fa-desktop">This PC</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <p><span class="fa fa-desktop">Desktop</span></p>
+                                        <p><span class="fa fa-download">Downloads</span></p>
+                                        <p><span class="fa fa-file-text">documents</span></p>
+                                        <p><span class="fa fa-picture-o ">Picture</span></p>
+                                        <p><span class="fa fa-folder ">Folder</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 ">
+                        <div class="row main-folders">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="openvid()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/myposter.PNG" class="img-responsive center-block" alt=""></p>
+                                <span>Video</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="opennote()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_sticky-note_299111.png" class="img-responsive  center-block" alt=""></p>
+                                <span>Note</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg" class="img-responsive  center-block" style="height: 64px;" alt=""></p>
+                                <span>Folder</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fived-row-win"></div>
+            </div>
+            <div class="resizer"></div>
+        </div>
+
+    <!--쓰레기통 윈도우창-->
+
+    <div class="overlay-computer" id="overlay-computer" data-id="3">
+        <div class="fluid-container">
+            <div class="first-row-win" id="first-row-win">
+                <div class="left">
+                    <i class="fa fa-hdd-o"></i>
+                    <i class="fa fa-file-o"></i>
+                    <i class="fa fa-folder"></i>
+                    <span>휴지통</span>
+                </div>
+                <div class="right">
+                    <i class="fa fa-window-minimize" onclick="closeopencom('3')"></i>
+                    <i class="fa fa-window-restore" onclick="returnCom('3')" id="returncam3" style="display:none;"></i>
+                    <i class="fa fa-window-maximize" onclick="uperCom('3')" id="upercam3"></i>
+                    <i class="fa fa-times" onclick="closecom('3')"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="second-row-win">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-envelope-open fa-2x"></i>
+                                <p>Mail</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-file-code-o  fa-2x"></i>
+                                <p>Code</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-sticky-note-o fa-2x"></i>
+                                <p>Note</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-user-circle fa-2x"></i>
+                                <p>User</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-battery-4  fa-2x"></i>
+                                <p>battery</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-book fa-2x"></i>
+                                <p>Book</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-car fa-2x"></i>
+                                <p>Car</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-camera-retro  fa-2x"></i>
+                                <p>cam</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-building fa-2x"></i>
+                                <p>build</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-cubes fa-2x"></i>
+                                <p>cubes</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-coffee fa-2x"></i>
+                                <p>coffee</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-film fa-2x"></i>
+                                <p>film</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row-win">
+                <div class="col-xs-2">
+                    <i class="fa fa-long-arrow-left"></i>
+                    <i class="fa fa-long-arrow-right"></i>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="col-xs-7">
+                    <div class="path-input">
+                        <span class="path-icon-input">This pc</span>
+                        <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                        <span class="path-icon-input">programming</span>
+                        <span class="path-icon-input">Front End</span>
+                    </div>
+                    <i class="fa fa-hdd-o path-icon"></i>
+                    <i class="fa fa-repeat path-icon-1"></i>
+                    <i class="path-icon-2">|</i>
+                </div>
+                <div class="col-xs-3">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <i class="fa fa-search path-icon-1"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fourd-row-win">
+                <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="fa fa-star">Quick access</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span class="fa fa-folder-open">Creative Cloud</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="fa fa-desktop">This PC</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-2 folders text-center" ondblclick="openImageOverlay('3')">
+                    <p class="contain"><img src="./img/vscode.png" class="img-responsive  center-block" alt=""></p>
+                    <span>vscode</span>
+                </div>
+
+                <div class="col-xs-2 folders text-center" ondblclick="openImageOverlay('4')">
+                    <p class="contain"><img src="./img/KakaoTalk_20240809_150737707.png" class="img-responsive  center-block" alt=""></p>
+                    <span>휴지</span>
+                </div>
+
+
+            </div>
+            <div class="fived-row-win"></div>
+        </div>
+        <div class="resizer"></div>
+    </div>
+
+    <!--포토폴리오 윈도우창-->
+
+
+    <div class="overlay-computer" id="overlay-computer" data-id="4">
+        <div class="fluid-container">
+            <div class="first-row-win" id="first-row-win">
+                <div class="left">
+                    <i class="fa fa-hdd-o"></i>
+                    <i class="fa fa-file-o"></i>
+                    <i class="fa fa-folder"></i>
+                    <span>포토폴리오</span>
+                </div>
+                <div class="right">
+                    <i class="fa fa-window-minimize" onclick="closeopencom('4')"></i>
+                    <i class="fa fa-window-restore" onclick="returnCom('4')" id="returncam4" style="display:none;"></i>
+                    <i class="fa fa-window-maximize" onclick="uperCom('4')" id="upercam4"></i>
+                    <i class="fa fa-times" onclick="closecom('4')"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="second-row-win">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-envelope-open fa-2x"></i>
+                                <p>Mail</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-file-code-o  fa-2x"></i>
+                                <p>Code</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-sticky-note-o fa-2x"></i>
+                                <p>Note</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-user-circle fa-2x"></i>
+                                <p>User</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-battery-4  fa-2x"></i>
+                                <p>battery</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-book fa-2x"></i>
+                                <p>Book</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-car fa-2x"></i>
+                                <p>Car</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-camera-retro  fa-2x"></i>
+                                <p>cam</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-building fa-2x"></i>
+                                <p>build</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-cubes fa-2x"></i>
+                                <p>cubes</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-coffee fa-2x"></i>
+                                <p>coffee</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-film fa-2x"></i>
+                                <p>film</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row-win">
+                <div class="col-xs-2">
+                    <i class="fa fa-long-arrow-left"></i>
+                    <i class="fa fa-long-arrow-right"></i>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="col-xs-7">
+                    <div class="path-input">
+                        <span class="path-icon-input">This pc</span>
+                        <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                        <span class="path-icon-input">programming</span>
+                        <span class="path-icon-input">Front End</span>
+                    </div>
+                    <i class="fa fa-hdd-o path-icon"></i>
+                    <i class="fa fa-repeat path-icon-1"></i>
+                    <i class="path-icon-2">|</i>
+                </div>
+                <div class="col-xs-3">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <i class="fa fa-search path-icon-1"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fourd-row-win">
+                <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="fa fa-star">Quick access</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span class="fa fa-folder-open">Creative Cloud</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="fa fa-desktop">This PC</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 ">
+                        <div class="row main-folders">
+                            <div class="col-xs-2 folders text-center" onclick="teamppt()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg" class="img-responsive center-block" style="height: 64px;" alt=""></p>
+                                <span>팀프로젝트</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" onclick="minippt()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg" class="img-responsive center-block" style="height: 64px;" alt=""></p>
+                                <span>미니프로젝트</span>
+                            </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fived-row-win"></div>
+        </div>
+        <div class="resizer"></div>
+    </div>
+
+    <!--팀포토폴리오 윈도우창-->
+
+    <div class="overlay-computer" id="overlay-computer" data-id="5">
+        <div class="fluid-container">
+            <div class="first-row-win" id="first-row-win">
+                <div class="left">
+                    <i class="fa fa-hdd-o"></i>
+                    <i class="fa fa-file-o"></i>
+                    <i class="fa fa-folder"></i>
+                    <span>팀포토폴리오</span>
+                </div>
+                <div class="right">
+                    <i class="fa fa-window-minimize" onclick="closeopencom()"></i>
+                    <i class="fa fa-window-restore" onclick="returncom()" id="returncam" style="display:none;"></i>
+                    <i class="fa fa-window-maximize" onclick="upercom()" id="upercam"></i>
+                    <i class="fa fa-times" onclick="closecom('5')"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="second-row-win">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-envelope-open fa-2x"></i>
+                                <p>Mail</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-file-code-o  fa-2x"></i>
+                                <p>Code</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-sticky-note-o fa-2x"></i>
+                                <p>Note</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-user-circle fa-2x"></i>
+                                <p>User</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-battery-4  fa-2x"></i>
+                                <p>battery</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-book fa-2x"></i>
+                                <p>Book</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-car fa-2x"></i>
+                                <p>Car</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-camera-retro  fa-2x"></i>
+                                <p>cam</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-building fa-2x"></i>
+                                <p>build</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-cubes fa-2x"></i>
+                                <p>cubes</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-coffee fa-2x"></i>
+                                <p>coffee</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-film fa-2x"></i>
+                                <p>film</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row-win">
+                <div class="col-xs-2">
+                    <i class="fa fa-long-arrow-left"></i>
+                    <i class="fa fa-long-arrow-right"></i>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="col-xs-7">
+                    <div class="path-input">
+                        <span class="path-icon-input">This pc</span>
+                        <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                        <span class="path-icon-input">programming</span>
+                        <span class="path-icon-input">Front End</span>
+                    </div>
+                    <i class="fa fa-hdd-o path-icon"></i>
+                    <i class="fa fa-repeat path-icon-1"></i>
+                    <i class="path-icon-2">|</i>
+                </div>
+                <div class="col-xs-3">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <i class="fa fa-search path-icon-1"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fourd-row-win">
+                <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="fa fa-star">Quick access</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span class="fa fa-folder-open">Creative Cloud</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="fa fa-desktop">This PC</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 ">
+                        <div class="row main-folders">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fived-row-win"></div>
+        </div>
+        <div class="resizer"></div>
+    </div>
+
+    <!--미니포토폴리오 윈도우창-->
+
+    <div class="overlay-computer" id="overlay-computer" data-id="6">
+        <div class="fluid-container">
+            <div class="first-row-win" id="first-row-win">
+                <div class="left">
+                    <i class="fa fa-hdd-o"></i>
+                    <i class="fa fa-file-o"></i>
+                    <i class="fa fa-folder"></i>
+                    <span>미니포토폴리오</span>
+                </div>
+                <div class="right">
+                    <i class="fa fa-window-minimize" onclick="closeopencom()"></i>
+                    <i class="fa fa-window-restore" onclick="returncom()" id="returncam" style="display:none;"></i>
+                    <i class="fa fa-window-maximize" onclick="upercom()" id="upercam"></i>
+                    <i class="fa fa-times" onclick="closecom('6')"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="second-row-win">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a class="home-a" href="#home" aria-controls="home" role="tab" data-toggle="tab">File</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Share</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">View</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-envelope-open fa-2x"></i>
+                                <p>Mail</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-file-code-o  fa-2x"></i>
+                                <p>Code</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-sticky-note-o fa-2x"></i>
+                                <p>Note</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-user-circle fa-2x"></i>
+                                <p>User</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-battery-4  fa-2x"></i>
+                                <p>battery</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-book fa-2x"></i>
+                                <p>Book</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-car fa-2x"></i>
+                                <p>Car</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-camera-retro  fa-2x"></i>
+                                <p>cam</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-building fa-2x"></i>
+                                <p>build</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-cubes fa-2x"></i>
+                                <p>cubes</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-coffee fa-2x"></i>
+                                <p>coffee</p>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-film fa-2x"></i>
+                                <p>film</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row-win">
+                <div class="col-xs-2">
+                    <i class="fa fa-long-arrow-left"></i>
+                    <i class="fa fa-long-arrow-right"></i>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+                <div class="col-xs-7">
+                    <div class="path-input">
+                        <span class="path-icon-input">This pc</span>
+                        <span class="path-icon-input">Mohamed Yahya (E:)</span>
+                        <span class="path-icon-input">programming</span>
+                        <span class="path-icon-input">Front End</span>
+                    </div>
+                    <i class="fa fa-hdd-o path-icon"></i>
+                    <i class="fa fa-repeat path-icon-1"></i>
+                    <i class="path-icon-2">|</i>
+                </div>
+                <div class="col-xs-3">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <i class="fa fa-search path-icon-1"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="fourd-row-win">
+                <div class="col-xs-3" style="border-right: 1px solid #808080;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span class="fa fa-star">Quick access</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span class="fa fa-folder-open">Creative Cloud</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span class="fa fa-desktop">This PC</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <p><span class="fa fa-desktop">Desktop</span></p>
+                                    <p><span class="fa fa-download">Downloads</span></p>
+                                    <p><span class="fa fa-file-text">documents</span></p>
+                                    <p><span class="fa fa-picture-o ">Picture</span></p>
+                                    <p><span class="fa fa-folder ">Folder</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 ">
+                        <div class="row main-folders">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
+                                <p class="contain"><img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive  center-block" alt=""></p>
+                                <span>Photo</span>
+                            </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fived-row-win"></div>
+        </div>
+        <div class="resizer"></div>
+    </div>
+
+
+    <div class="overlay-computer" id="overlay-computer" data-id="7">
+        <div class="fluid-container">
+            <!-- 상단바 시작 -->
+            <div class="first-row-win" id="first-row-win">
+                <div class="left">
+                    <i class="fa fa-file-o"></i>
+                    <span>이력서</span>
+                </div>
+                <div class="right">
+                    <i class="fa fa-times" onclick="closeWindow(7)"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- 상단바 끝 -->
+
+            <!-- 이력서 이미지 표시 -->
+            <div class="image-display">
+                <img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="img-responsive center-block" alt="이력서">
+            </div>
+        </div>
+    </div>
+
+
+   
+    </div>
+
+
+        <div class="clearfix"></div>
+        <div class="image-overlay" id="image-overlay">
+            <div class="fluid-container">
+                <div class="first-row-img">
+                    <span class="center-text head-over">My Image</span>
+                    <div class="right">
+                        <i class="fa fa-times" onclick="closeimg()"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="second-row-img">
+                    <img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg" class="center-block img-responsive" style="height:80vh" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="note-overlay" id="note-overlay">
+            <div class="fluid-container">
+                <div class="first-row-note">
+                    <span class="center-text head-over">My Note</span>
+                    <div class="right">
+                        <i class="fa fa-times" onclick="closenote()"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="second-row-note">
+                    <textarea></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="about-overlay" id="about-overlay">
+            <div class="fluid-container">
+                <div class="first-row-img">
+                    <span class="center-text head-over">Info about me</span>
+                    <div class="right">
+                        <i class="fa fa-times" onclick="closeabout()"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="second-row-abo">
+                    <div>
+                        <img src="https://mohamedelghandour.github.io/windows-10/img/profile.png" class="img-responsive" alt="">
+                        <p>
+                            Hi, My name is Mohamed El Ghandour From Egypt :( . <br> I'am 17 Years old. <br> I'am a Programmer web (Front End). <br> My Number: 20+ <mark>xxx xxxx </mark>. <br> And you can Call Me From <a href="https://goo.gl/B56o1U">Here</a> <br> I love computer, technology and programming <br> I was learning programming languages. <br> The best language for me is JavaScript. <br> I use Javascript instead of jQuery. <br> That's why I'm strong in Javascript. <br> The most loved thing in programming is often the challenge. <br> I am capable of Html, Html 5, Css, Css3, Javascript <br> Thanks for your time <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="start-window-fade hidden-start" id="start-window-fade"></div>
+        <div class="start-window hidden-start" id="start-window">
+            <div class="fluid-container" id="container-start">
+                <div class="row">
+                    <div class="col-xs-1 first-column">
+                        <div class="icon-bottom" id="power" onclick="powerOff()">
+                            <i class="fa fa-power-off fa-1x"></i>
+                        </div>
+                        <div class="icon-bottom">
+                            <i class="fa fa-cog fa-1x"></i>
+                        </div>
+                        <div class="icon-bottom">
+                            <i class="fa fa-folder-open-o fa-1x"></i>
+                        </div>
+                        <div class="icon-bottom">
+                            <i class="fa fa-user fa-1x"></i>
+                        </div>
+                        <div class="icon-bottom open-icon-list">
+                            <i class="fa fa-bars fa-1x"></i>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 second-column">
+                        <div class="wrap-scroll">
+                            <div class="head-med">
+                                <small>What I'am Used</small>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/HTML_Logo.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Html, Html 5</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/8b61de4c84033266e15317a6eb9fda2d-css3.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Css, Css 3</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/Javascript-shield.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Pure JavaScript</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/bootstrap-4.svg" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Bootstrap</small>
+                                </div>
+                            </div>
+                            <div class="head-med mouse-prient">
+                                <small>Expand <i class="fa fa-chevron-down fa-1x"></i></small>
+                            </div>
+                            <div class="head-med">
+                                <small>Tools used</small>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/winicon.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Windows 10</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/Firefox.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Firefox</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/chrome1600.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">chrome</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/favicon.ico" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Visual Studio Code</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/Photoshop_CC_icon.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Photoshop cc 2017</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/illustrator.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">illustrator cc 2017</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/github-desktop-icon.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">github</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/codepen1600.png" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Codepen</small>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/photo.jpg" width="35" height="35" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="media-heading">Upwork</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 third-column">
+                        <div class="head-box">
+                            <small>Life at a glance</small>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-push-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        Mail
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-xs-pull-8 box">
+                                <div class="box-style text-center">
+                                    <div class="mycontainer">
+                                        <div id="day">day</div>
+                                        <div id="number-day">number</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-internet-explorer fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        Microsoft Edge
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-picture-o fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        Picture
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-sun-o fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        Weather
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-laptop fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        User
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/profile.png');background-size: cover;    background-repeat: no-repeat;
+                                background-position: 39%;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div>
+                                        twitter <i class="fa fa-twitter" style="float: right;line-height: 21px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-shopping-bag  fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        store
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-skype  fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        skype
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style text-center" style="background:url('https://mohamedelghandour.github.io/windows-10/img/king-care.jpg');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+                                        Candy Crush
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="head-box">
+                            <small>Play And Explore</small>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/logo.PNG');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+                                        Xbox
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-music fa-2x"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+                                        Music
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-film fa-2x"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+                                        Film
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/microsoft-solitaire-collection-02-535x535.png');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/1200x630bb.jpg');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+                                        minecraft
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/shortcut-icon-180-393c2144.png');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 col-xs-push-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/bank.jpg');background-size: 130%;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div>
+                                        News
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-xs-pull-8 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/maxresdefault_live.jpg');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div>
+                                        Money
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/unnamed.png');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size: 10px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/onenote-amazon-app-store-100361701-large.jpg');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size:12px;">
+                                        OneNote
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 box">
+                                <div class="box-style" style="background:url('https://mohamedelghandour.github.io/windows-10/img/office2016logo.png');background-size: cover;background-position: center;">
+                                    <div class="icon-bottom text-center" style="margin: 20px;">
+                                        <i class="fa fa-twitter fa-2x" style="color: rgba(0,0,0,0);"></i>
+                                    </div>
+                                    <div style="font-size:10px;">
+                                        Office
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="nav navbar-inverse navbar-fixed-bottom footer text-center">
+            <div class="fluid-container">
+                <div class="row">
+                    <div class="left">
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom strat-win" id="strat-win">
+                                <i class="fa fa-windows fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom">
+                                <i class="fa fa-search fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom">
+                                <i class="fa fa-envelope fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me" id="a1">
+                            <div class="icon-bottom">
+                                <i class="fa fa-folder fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me" id="a2">
+                            <div class="icon-bottom">
+                                <i class="fa fa-picture-o fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me" id="a3">
+                            <div class="icon-bottom">
+                                <i class="fa fa-film fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me" id="a4">
+                            <div class="icon-bottom">
+                                <i class="fa fa-file-text-o fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me" id="a5">
+                            <div class="icon-bottom">
+                                <i class="fa fa-id-card fa-2x"></i>
+                            </div>
+                        </div>
+                        <span class=".clearfix"></span>
+                    </div>
+                    <div class="right">
+                        <div class="col-xs-1-me" id="close-all">
+                        </div>
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom">
+                                <i class="fa fa-bell fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="date col-xs-1-me">
+                            <span id="time">00:00</span>
+                            <span id="history">00/00/0000</span>
+                        </div>
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom">
+                                <i class="fa fa-volume-up  fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-1-me">
+                            <div class="icon-bottom">
+                                <i class="fa fa-chevron-up fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
+
+
