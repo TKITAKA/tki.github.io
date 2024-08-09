@@ -7,6 +7,7 @@
     <title>Windows 10 Design</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
@@ -742,7 +743,7 @@ i.fa.fa-times:hover {
                             <img src="./img/2.png" width="17" height="17" style="margin-right: 5px;" alt="복사">
                             <img src="./img/3.png" width="17" height="17" alt="붙여넣기">
                             <div class="separator2"></div> <!-- 구분선 2 -->
-                            <span>Front End</span>
+                            <span>내 PC</span>
                         </div>
                     </div>
                     <div class="right">
@@ -1063,33 +1064,39 @@ i.fa.fa-times:hover {
                         <div class="row main-folders">
                             <div class="col-xs-2 folders text-center" ondblclick="openimg()">
                                 <p class="contain"><img
-                                        src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg"
+                                        src="./img/18.png"
                                         class="img-responsive  center-block" alt=""></p>
-                                <span>Photo</span>
+                                <span>다운로드</span>
                             </div>
-                            <div class="col-xs-2 folders text-center" ondblclick="openvid()">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
                                 <p class="contain"><img
-                                        src="https://mohamedelghandour.github.io/windows-10/img/myposter.PNG"
+                                        src="./img/19.png"
                                         class="img-responsive center-block" alt=""></p>
-                                <span>Video</span>
+                                <span>사진</span>
                             </div>
-                            <div class="col-xs-2 folders text-center" ondblclick="opennote()">
+                            <div class="col-xs-2 folders text-center" ondblclick="openimg()">
                                 <p class="contain"><img
-                                        src="https://mohamedelghandour.github.io/windows-10/img/if_sticky-note_299111.png"
+                                        src="./img/20.png"
                                         class="img-responsive  center-block" alt=""></p>
-                                <span>Note</span>
+                                <span>문서</span>
                             </div>
-                            <div class="col-xs-2 folders text-center" onclick="toggleOverlay('1')">
+                            <div class="col-xs-2 folders text-center" onclick="openimg()">
                                 <p class="contain"><img
-                                        src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg"
+                                        src="./img/21.png"
                                         class="img-responsive center-block" style="height: 64px;" alt=""></p>
-                                <span>Folder</span>
+                                <span>폴더</span>
                             </div>
-                            <div class="col-xs-2 folders text-center" onclick="toggleOverlay('2')">
+                            <div class="col-xs-2 folders text-center" onclick="openimg()">
                                 <p class="contain"><img
-                                        src="https://mohamedelghandour.github.io/windows-10/img/if_folder-blue_285658.svg"
+                                        src="./img/15.png"
                                         class="img-responsive center-block" style="height: 64px;" alt=""></p>
-                                <span>Folder</span>
+                                <span>로컬 디스크(C:)</span>
+                            </div>
+                            <div class="col-xs-2 folders text-center" onclick="openimg()">
+                                <p class="contain"><img
+                                        src="./img/24.png"
+                                        class="img-responsive center-block" style="height: 64px;" alt=""></p>
+                                <span>새 볼륨(D:)</span>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -3430,7 +3437,7 @@ i.fa.fa-times:hover {
                 <div class="clearfix"></div>
             </div>
             <div class="second-row-img">
-                <img src="https://mohamedelghandour.github.io/windows-10/img/admin-3.jpg"
+                <img src="./img/f3ed849cd0302b29d4d2375fa5b77a66.jpg"
                     class="center-block img-responsive" style="height:80vh" alt="">
             </div>
         </div>
@@ -3979,7 +3986,7 @@ i.fa.fa-times:hover {
         </div>
     </footer>
     </div>
-    <script>var myWindowFade = document.getElementById('start-window-fade'),
+    <script src="./scripts.js">var myWindowFade = document.getElementById('start-window-fade'),
         myWindow = document.getElementById('window'),
         videoOverlay = document.getElementById('video-overlay'),
         noteOverlay = document.getElementById('note-overlay'),
